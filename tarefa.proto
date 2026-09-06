@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+enum Status{
+    PENDENTE = 0;
+    EM_ANDAMENTO = 1;
+    CONCLUIDO = 2;
+}
+
+message Tarefa{
+    string id = 1;   
+    string nome = 2;
+    string descricao = 3;
+    string data_limite = 4;
+    Status status = 5;
+    repeated string responsaveis = 6; 
+}
+
+message CriarTarefaRequest{
+    string nome = 1;
+    string descricao = 2;
+    string data_limite = 3;
+    Status status = 4;
+    repeated string responsaveis = 5;
+}
+
+message ListaRequest {}
+
+message ListaReply{
+    repeated Tarefa tarefas = 1;
+}
+
+message AtualizacaoReply{
+    bool status = 1;
+    string mensagem = 2;
+    Tarefa tarefa = 3;
+}
+
+message RemoverRequest{
+    string id = 1;
+}
+
+message RemoverReply{
+    bool status = 1;
+    string mensagem = 2;
+}
+
+service GerenciarTarefas{
+    rpc CriarTarefa(CriarTarefaRequest) returns (Tarefa);
+    rpc ListarTarefas(ListaRequest) returns (ListaReply);
+    rpc AtualizarTarefa(Tarefa) returns (AtualizacaoReply);
+    rpc RemoverTarefa(RemoverRequest) returns (RemoverReply);
+}
+

@@ -1,3 +1,6 @@
+// Nesse arquivo defini as mensagens e o serviço que vamos precisar
+// Ao compilar, ele gera os arquivos tarefa_pb2_grpc.py e tarefa_pb2.py - NÃO ALTERA ELES - 
+
 syntax = "proto3";
 
 enum Status{

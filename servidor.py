@@ -17,9 +17,12 @@ class GerenciadorTarefas(tarefa_pb2_grpc.GerenciarTarefasServicer):
             status = request.status, 
             responsaveis = request.responsaveis
         )
-        
+
         return tarefa
-        
+
+    # implementar listarTarefas
+    # implementar AtualizarTarefa
+    # implementar RemoverTarefas    
 
 def iniciarServer():
     # define o numero maximo de threads a serem usadas

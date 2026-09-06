@@ -3,6 +3,7 @@ import tarefa_pb2
 import tarefa_pb2_grpc
 
 # arquivo criado atualmente so para teste 
+# implementar cliente interativo e persistencia em arquivos
 
 canal = grpc.insecure_channel("localhost:50051")
 stub = tarefa_pb2_grpc.GerenciarTarefasStub(canal)

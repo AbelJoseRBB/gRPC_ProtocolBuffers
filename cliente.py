@@ -12,9 +12,16 @@ request = tarefa_pb2.CriarTarefaRequest(
     descricao="Finalizar atividade de Sistemas Distribuidos",
     data_limite="10/09/2026",
     status=tarefa_pb2.PENDENTE,
-    responsaveis=["Abel"]
+    responsaveis=["Abel gay"]
 )
 
 resposta = stub.CriarTarefa(request)
+print("Tarefa criada\n")
+
+# testandoooooooooo
+print("Buscando todas as tarefas salvas no servidor:")
+resposta = stub.ListarTarefas(tarefa_pb2.ListaRequest())
+
+print("\n--- LISTA DE TAREFAS NO SERVIDOR---")
 
 print(resposta)

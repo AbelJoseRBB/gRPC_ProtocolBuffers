@@ -1,9 +1,12 @@
 {
     "id": "471aa004-d6d0-41b4-a54e-67888c90723b",
-    "nome": "Estudar gRPC",
+    "nome": "Estudar gRPC Att",
     "descricao": "Finalizar atividade de Sistemas Distribuidos",
     "dataLimite": "10/09/2026",
     "responsaveis": [
-        "Abel gay"
+        "Abel",
+        "Wendell",
+        "Miller",
+        "Vitor"
     ]
 }

@@ -30,7 +30,7 @@ class GerenciadorTarefas(tarefa_pb2_grpc.GerenciarTarefasServicer):
         #salvando a tarefa em arquivo JOISON
         caminho_arquivo = os.path.join(pastaTarefas, f"{novo_id}.json")
         with open(caminho_arquivo, "w", encoding="utf-8") as f: #w de write
-            json.dump(MessageToDict(tarefa), f, indent=4)
+            json.dump(MessageToDict(tarefa, always_print_fields_with_no_presence=True), f, indent=4)
 
         print(f"Tarefa criada e salva: {novo_id}.json")
 
@@ -55,9 +55,12 @@ class GerenciadorTarefas(tarefa_pb2_grpc.GerenciarTarefasServicer):
 
     def AtualizarTarefa(self, request, context):
         caminho_arquivo = os.path.join(pastaTarefas, f"{request.id}.json")
-
+        
+        if not os.path.exists(caminho_arquivo):
+            return tarefa_pb2.AtualizacaoReply(status= False, mensagem = "Tarefa não encontrada" )
+        
         with open(caminho_arquivo, "w", encoding="utf-8") as f:
-            json.dump(MessageToDict(request), f, indent=4)
+            json.dump(MessageToDict(request, always_print_fields_with_no_presence=True), f, indent=4)
             
         print(f"Tarefa atualizada: {request.id}.json")
         return tarefa_pb2.AtualizacaoReply(
@@ -66,7 +69,15 @@ class GerenciadorTarefas(tarefa_pb2_grpc.GerenciarTarefasServicer):
             tarefa=request
         )
 
-    # implementar RemoverTarefas    
+    def RemoverTarefa(self, request, context):
+        caminho_arquivo = os.path.join(pastaTarefas, f"{request.id}.json")
+        if not os.path.exists(caminho_arquivo):
+            return tarefa_pb2.RemoverReply(status = False, mensagem = "Tarefa não encontrada")
+
+        os.remove(caminho_arquivo)
+
+        print("Tarefa removida")
+        return tarefa_pb2.RemoverReply(status = True, mensagem = "Tarefa removida")
 
 def iniciarServer():
     # define o numero maximo de threads a serem usadas

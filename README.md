@@ -4,6 +4,17 @@ Sistema distribuído de gerenciamento de tarefas desenvolvido em **Python**, uti
 
 O sistema segue uma arquitetura **cliente-servidor**, na qual um servidor central é responsável pelo gerenciamento e persistência das tarefas, enquanto múltiplos clientes podem realizar operações remotamente.
 
+---
+
+## Autores
+
+- Abel José Rocha Barros Bezerra
+- Wendell Moura Leite
+- Guilherme Miller Gama Cardoso
+- Victor Henrick Santos Andrade 
+
+---
+
 ## Funcionalidades
 
 O sistema disponibiliza quatro operações principais:
@@ -303,9 +314,3 @@ Exemplo da criação de uma tarefa:
 
 ---
 
-## Autores
-
-- Abel José Rocha Barros Bezerra
-- Wendell Moura Leite
-- Guilherme Miller Gama Cardoso
-- Victor Henrick Santos Andrade 

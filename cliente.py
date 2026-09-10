@@ -2,8 +2,7 @@ import grpc
 import tarefa_pb2
 import tarefa_pb2_grpc
 
-# Falta testar em duas máquinas
-
+# Substituir "localhost" pelo ip do server
 canal = grpc.insecure_channel("localhost:50051")
 stub = tarefa_pb2_grpc.GerenciarTarefasStub(canal)
 
@@ -28,7 +27,7 @@ while(True):
         statusT = int(input())
         print("Digite os participantes: ")
         participantesT = input()
-        participantesT = participantesT.split(",")
+        participantesT = participantesT.split(", ")
         print()
         
         criarRequest = tarefa_pb2.CriarTarefaRequest(
@@ -61,7 +60,7 @@ while(True):
         statusT = int(input())
         print("Digite os participantes: ")
         participantesT = input()
-        participantesT = participantesT.split(",")
+        participantesT = participantesT.split(", ")
         print()
 
         attRequest = tarefa_pb2.Tarefa(

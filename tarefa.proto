@@ -1,5 +1,6 @@
 // Nesse arquivo defini as mensagens e o serviço que vamos precisar
 // Ao compilar, ele gera os arquivos tarefa_pb2_grpc.py e tarefa_pb2.py - NÃO ALTERA ELES - 
+// python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. tarefa.proto
 
 syntax = "proto3";
 
